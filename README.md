@@ -15,4 +15,4 @@ This package includes minimalist ROS 2 code to demonstrated important ROS 2 conc
 
 ## Author
 
-Addison Sears-Collins
+DatKa
