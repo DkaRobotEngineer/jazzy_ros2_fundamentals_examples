@@ -56,18 +56,34 @@ install (
   DESTINATION lib/${PROJECT_NAME}
 )
 
-
-
 if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
+  #find_package(ament_lint_auto REQUIRED)
+  find_package(ament_cmake_pytest REQUIRED)
+  find_package(ament_cmake_gtest REQUIRED)
   # the following line skips the linter which checks for copyrights
   # comment the line when a copyright and license is added to all source files
-  set(ament_cmake_copyright_FOUND TRUE)
+  #set(ament_cmake_copyright_FOUND TRUE)
   # the following line skips cpplint (only works in a git repo)
   # comment the line when this package is in a git repo and when
   # a copyright and license is added to all source files
-  set(ament_cmake_cpplint_FOUND TRUE)
-  ament_lint_auto_find_test_dependencies()
+  #set(ament_cmake_cpplint_FOUND TRUE)
+  #ament_lint_auto_find_test_dependencies()
+  ament_add_pytest_test(minimal_publisher_test test/pytest/test_publisher.py
+    TIMEOUT 60
+  )
+
+
+  # C++ tests
+  ament_add_gtest(cpp_minimal_publisher_test
+    test/gtest/test_publisher.cpp  
+  )
+
+  # Add dependencies for the C++ test executable
+  ament_target_dependencies(cpp_minimal_publisher_test
+    ${dependencies}
+  )
+
+
 endif()
 
 ament_export_include_directories(include)

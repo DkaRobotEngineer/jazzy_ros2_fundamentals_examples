@@ -11,11 +11,13 @@
   <buildtool_depend>ament_cmake_python</buildtool_depend>
 
   <depend>rclcpp</depend>
-  <depend>rclcpy</depend>
+  <depend>rclpy</depend>
   <depend>std_msgs</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
+  <test_depend>ament_cmake_pytest</test_depend>
+  <test_depend>ament_cmake_gtesttt</test_depend>
 
   <export>
     <build_type>ament_cmake</build_type>

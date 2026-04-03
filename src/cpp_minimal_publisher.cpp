@@ -32,6 +32,7 @@ private:
   rclcpp::TimerBase::SharedPtr timer_; // Khai báo thêm biến timer_
 };
 
+#ifndef TESTING_EXCLUDE_MAIN
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
@@ -42,3 +43,4 @@ int main(int argc, char * argv[])
   rclcpp::shutdown();
   return 0;
 }
+#endif
